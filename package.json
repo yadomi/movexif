@@ -1,0 +1,16 @@
+{
+  "author": {
+    "email": "felix.yadomi@gmail.com",
+    "name": "Felix Yadomi"
+  },
+  "license": "MIT",
+  "version": "0.1.0",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "date-fns": "^2.23.0",
+    "fast-exif": "^1.0.1",
+    "fast-glob": "^3.2.7",
+    "fs-extra": "^10.0.0",
+    "ramda": "^0.27.1"
+  }
+}
