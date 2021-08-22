@@ -75,13 +75,15 @@ Example: `<Make>/<Model>`
 ### Date
   
 To use data in a pattern, use the `d(format)` syntax, where format is any valid format from https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+  
 Example `d(yyyy)/d(MM)/d(dd)/`
  
   
 ### File name
   
-If the pattern ends with a slash, a folder matching the last part of the pattern will be created and **files will be moved without touching the initial file name**
-If the pattern does not end with a slash, the file will be renamed with the matching pattern.
+- If the pattern ends with a slash, a folder matching the last part of the pattern will be created and **files will be moved without touching the initial file name**
+  
+- If the pattern does not end with a slash, the file will be renamed with the matching pattern.
   
 ## Examples
 
