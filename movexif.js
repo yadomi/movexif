@@ -106,7 +106,7 @@ function replaceMetadata(pattern, metadata) {
   const re = /(?<key><.*?>)/g;
   return (pattern.match(re) || []).reduce((sum, match) => {
     const key = match.substring(1, match.length - 1);
-    sum = sum.replace(match, metadata[key]);
+    sum = sum.replace(match, metadata[key] || "Unknown");
 
     return sum;
   }, pattern);
