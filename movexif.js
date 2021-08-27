@@ -146,9 +146,12 @@ async function main() {
   const files = [];
   for await (const source of stream) {
     const metadata = await exif.read(source);
-    const partial = join(resolve(options.dest), createPath(metadata));
+    if (!metadata) continue;
 
-    const dest = options.pattern.endsWith("/") ? partial.concat(basename(source)) : partial.concat(extname(source));
+    const partial = join(resolve(options.dest), createPath(metadata));
+    const dest = options.pattern.endsWith("/") 
+      ? partial.concat(basename(source)) 
+      : partial.concat(extname(source));
 
     files.push([source, dest]);
   }
