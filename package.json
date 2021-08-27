@@ -7,7 +7,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "build": "node_modules/.bin/pkg index.js -t node16-linux-x64,node16-win-x64"
+    "build": "node_modules/.bin/pkg index.js -t node16-linux-x64,node16-win-x64 --out-path dist/"
   },
   "dependencies": {
     "chalk": "^4.1.2",
