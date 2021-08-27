@@ -145,7 +145,11 @@ async function main() {
 
   const files = [];
   for await (const source of stream) {
-    const metadata = await exif.read(source);
+    let metadata;
+    try { 
+      metadata = await exif.read(source);
+    } catch (e) {} // TOOD: probably should do something here
+
     if (!metadata) continue;
 
     const partial = join(resolve(options.dest), createPath(metadata));
