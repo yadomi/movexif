@@ -14,14 +14,14 @@ jobs:
         with:
           node-version: '16'
       - name: Set short_ref
-        id: vars
-        run: echo ::set-output name=ref::${GITHUB_REF#refs/*/}
+        id: sha
+        run: echo ::set-output name=value::${GITHUB_REF#refs/*/}
       - name: Set short_sha
-        id: vars
-        run: echo ::set-output name=sha::$(git rev-parse --short HEAD)
+        id: ref
+        run: echo ::set-output name=value::$(git rev-parse --short HEAD)
       - run: yarn install
       - run: yarn build
       - uses: actions/upload-artifact@v2
         with:
-          name: movexif-${{ steps.vars.outputs.ref }}-${{steps.vars.outputs.sha}}
+          name: movexif-${{ steps.ref.outputs.value }}-${{steps.sha.outputs.value}}
           path: "dist/"
