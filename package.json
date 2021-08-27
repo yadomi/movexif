@@ -5,9 +5,9 @@
   },
   "license": "MIT",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "movexif.js",
   "scripts": {
-    "build": "node_modules/.bin/pkg index.js -t node16-linux-x64,node16-win-x64 --out-path dist/"
+    "build": "node_modules/.bin/pkg movexif.js -t node16-linux-x64,node16-win-x64 --compress GZip --out-path dist/"
   },
   "dependencies": {
     "chalk": "^4.1.2",
