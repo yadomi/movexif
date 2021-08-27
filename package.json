@@ -13,5 +13,8 @@
     "fast-glob": "^3.2.7",
     "fs-extra": "^10.0.0",
     "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "pkg": "^5.3.1"
   }
 }
