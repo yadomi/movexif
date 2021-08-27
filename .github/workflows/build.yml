@@ -17,5 +17,5 @@ jobs:
       - run: yarn build
       - uses: actions/upload-artifact@v2
         with:
-          name: movexif-${{ env.GITHUB_REF }}-${{ env.GITHUB_SHA::8 }}
+          name: movexif-${{ github.ref }}-${{ github.sha::8 }}
           path: "dist/"
