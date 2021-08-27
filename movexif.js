@@ -51,7 +51,7 @@ function getOptions(args) {
   if (args.includes("-p")) {
     const index = args.indexOf("-p");
     const pattern = args[index + 1];
-    console.log({ pattern });
+
     if (!pattern) {
       usage();
       console.log(`\nError: Got option -p but is empty`);
