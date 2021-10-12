@@ -97,9 +97,12 @@ function replaceDates(pattern, metadata) {
   const re = /d\(.*?\)/g;
 
   return (pattern.match(re) || []).reduce((sum, match) => {
-    const date = new Date(metadata.DateTimeOriginal || metadata.DateTimeDigitized); // TODO: chosing which date could be an option
-    const fmt = match.substring(2, match.length - 1); // removes d()
+    const datetime = metadata.DateTimeOriginal || metadata.DateTimeDigitized; // TODO: chosing which date could be an option
+    if (!datetime) return "unknown";
 
+    const date = new Date(datetime);
+
+    const fmt = match.substring(2, match.length - 1); // removes d()
     sum = sum.replace(match, format(date, fmt));
 
     return sum;
@@ -110,7 +113,7 @@ function replaceMetadata(pattern, metadata) {
   const re = /(?<key><.*?>)/g;
   return (pattern.match(re) || []).reduce((sum, match) => {
     const key = match.substring(1, match.length - 1);
-    sum = sum.replace(match, metadata[key] || "Unknown");
+    sum = sum.replace(match, metadata[key] || "unknown");
 
     return sum;
   }, pattern);
