@@ -75,6 +75,10 @@ function getOptions(args) {
     options.dry = true;
   }
 
+  if (args.includes("--overwrite")) {
+    options.overwrite = true;
+  }
+
   return {
     ...defaultOptions,
     ...options,
