@@ -143,9 +143,11 @@ async function main() {
   checkDirExist(options.dest);
 
   //TODO: Handle more than this (heic, png ect...,). Also camel case ect
-  const stream = fg.stream(["**/*.jpg"], {
+  const stream = fg.stream(["**/*.jpg", "**/*.jpeg"], {
+    caseSensitiveMatch: false,
     cwd: options.source,
     absolute: true,
+    suppressErrors: true,
   });
 
   const createPath = createPathFromPattern(options.pattern);
