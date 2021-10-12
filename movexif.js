@@ -177,11 +177,17 @@ async function main() {
     console.log(`${relative(process.cwd(), source)} ->  ${chalk[color](relative(process.cwd(), dest))}`);
 
     if (options.dry) continue;
+    if (colision[dest]) continue;
 
-    await mkdirp(dirname(dest));
-    await action(source, dest, {
-      overwrite: options.overwrite,
-    });
+    try {
+      await mkdirp(dirname(dest));
+      await action(source, dest, {
+        overwrite: options.overwrite,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+
     console.log(`${options.copy ? "Copied" : "Moved"} ${source} to ${dest}`);
   }
 
